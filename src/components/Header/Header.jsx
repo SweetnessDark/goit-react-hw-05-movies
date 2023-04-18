@@ -1,6 +1,4 @@
-import { NavLink } from 'react-router-dom';
-
-import sass from './Header.module.scss';
+import { StyledLink, PageItem, HeaderItems } from './Header.styled';
 
 const navItem = [
   { href: '/', text: 'Home' },
@@ -9,22 +7,20 @@ const navItem = [
 
 export const Header = () => {
   return (
-    <header className={sass.header}>
+    <HeaderItems>
       <div className="container">
         <nav>
-          <ul className={sass.pageItem}>
+          <PageItem>
             {navItem.map(({ href, text }) => {
               return (
                 <li key={href}>
-                  <NavLink className={sass.linkPage} to={href}>
-                    {text}
-                  </NavLink>
+                  <StyledLink to={href}>{text}</StyledLink>
                 </li>
               );
             })}
-          </ul>
+          </PageItem>
         </nav>
       </div>
-    </header>
+    </HeaderItems>
   );
 };

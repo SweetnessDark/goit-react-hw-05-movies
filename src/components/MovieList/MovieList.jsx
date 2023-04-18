@@ -2,9 +2,11 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import sass from './MovieList.module.scss';
 
-const MovieList = ({ movies, location }) => {
-  const baseImg = 'https://image.tmdb.org/t/p/w500/';
+const baseImg = 'https://image.tmdb.org/t/p/w500/';
+const imgNotFound =
+  'https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg';
 
+const MovieList = ({ movies, location }) => {
   return (
     <div className="container">
       <ul className={sass.movieList}>
@@ -13,7 +15,7 @@ const MovieList = ({ movies, location }) => {
             <Link to={`/movies/${id}`} state={{ from: location }}>
               <img
                 className={sass.posterMovie}
-                src={baseImg.concat(poster_path)}
+                src={poster_path ? baseImg.concat(poster_path) : imgNotFound}
                 alt=""
               />
               <p className={sass.titleMovie}>{title ?? original_name}</p>
