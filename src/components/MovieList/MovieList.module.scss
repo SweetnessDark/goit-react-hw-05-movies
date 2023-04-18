@@ -1,0 +1,14 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.posterMovie {
+  width: 350px;
+}
+
+.titleMovie {
+  font-size: 18px;
+  color: black;
+}
